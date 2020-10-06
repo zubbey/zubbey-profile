@@ -1,0 +1,151 @@
+doctype html
+head
+  title= title
+  // Meta
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(name='description' content='Responsive Resume Template')
+  meta(name='author' content='Xiaoying Riley at 3rd Wave Media')
+  link(rel='shortcut icon' href='favicon.ico')
+  // Google Font
+  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900' rel='stylesheet')
+  // FontAwesome JS
+  script(defer='' src='static/fontawesome/js/all.min.js')
+  // Theme CSS
+  link#theme-style(rel='stylesheet' href='static/css/pillar-2.css')
+article.resume-wrapper.text-center.position-relative
+  .resume-wrapper-inner.mx-auto.text-left.bg-white.shadow-lg
+    header.resume-header.pt-4.pt-md-0
+      .media.flex-column.flex-md-row
+        img.mr-3.img-fluid.picture.mx-auto(src='static/images/profile.jpg' alt='')
+        .media-body.p-4.d-flex.flex-column.flex-md-row.mx-auto.mx-lg-0
+          .primary-info
+            h2.name.mt-0.mb-1.text-white.text-uppercase.text-uppercase=data.name
+            .title.mb-2=data.stack
+            ul.list-unstyled
+              li.mb-1
+                a(href='#')=data.email
+              li.mb-1
+                a(href='#')=data.phone
+              li.mb-1
+                a(href='#')=data.dob
+          // //primary-info
+          .secondary-info.ml-md-auto.mt-2
+            ul.resume-social.list-unstyled
+            each link in data.links
+              li.mb-3
+                a(href=link.link target='_blank')
+                  span.fa-container.text-center.mr-2
+                    i(class='fab fa-' + link.platform + ' fa-fw')
+                  =link.platform.charAt(0).toUpperCase() + link.platform.slice(1)
+          // //secondary-info
+        // //media-body
+      // //media
+    .resume-body.p-5
+      section.resume-section.summary-section.mb-5
+        h2.resume-section-title.text-uppercase.font-weight-bold.pb-3.mb-3 Career Summary
+        .resume-section-content
+          p.mb-0=data.careersummary
+      // //summary-section
+      .row
+        .col-lg-9
+          section.resume-section.experience-section.mb-5
+            h2.resume-section-title.text-uppercase.font-weight-bold.pb-3.mb-3
+              | Work Experience
+            .resume-section-content
+              .resume-timeline.position-relative
+              each exp in data.workexperience
+                article.resume-timeline-item.position-relative.pb-5
+                  .resume-timeline-item-header.mb-2
+                    .d-flex.flex-column.flex-md-row
+                      h3.resume-position-title.font-weight-bold.mb-1
+                        =exp.title
+                      .resume-company-name.ml-auto=exp.company
+                    // //row
+                    .resume-position-time=exp.year
+                  // //resume-timeline-item-header
+                  .resume-timeline-item-desc
+                    p=exp.desc
+                    h4.resume-timeline-item-desc-heading.font-weight-bold
+                      | Technologies
+                      | used:
+                    ul.list-inline
+                    each tech in exp.techused
+                      li.list-inline-item
+                        span.badge.badge-primary.badge-pill=tech
+                  // //resume-timeline-item-desc
+                // //resume-timeline-item
+              // //resume-timeline
+          // //experience-section
+          section.resume-section.experience-section.mb-5
+            h2.resume-section-title.text-uppercase.font-weight-bold.pb-3.mb-3
+              | Latest Jobs
+            .resume-section-content
+              .resume-timeline.position-relative
+              each job in data.lastestjob
+                article.resume-timeline-item.position-relative.pb-5
+                  .resume-timeline-item-header.mb-2
+                      h3.resume-position-title.font-weight-bold.mb-1=job.name
+                      span=`(${job.jobdesc})`
+                      .resume-timeline-item-desc
+                        a(href=job.link target="_blank")=job.link.replace(/(^\w+:|^)\/\//, '')
+        .col-lg-3
+          section.resume-section.skills-section.mb-5
+            h2.resume-section-title.text-uppercase.font-weight-bold.pb-3.mb-3
+              | Skills &amp;
+              | Tools
+            .resume-section-content
+            each snt in data.skillsntools
+              .resume-skill-item
+                h4.resume-skills-cat.font-weight-bold=snt.skill
+                ul.list-unstyled.mb-4
+                each tool in snt.tools
+                  li.mb-2
+                    .resume-skill-name=tool
+                    .progress.resume-progress
+                      .progress-bar.theme-progress-bar-dark(role='progressbar' style='width: 98%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100')
+              // //resume-skill-item
+            // resume-section-content
+          // //skills-section
+          section.resume-section.education-section.mb-5
+            h2.resume-section-title.text-uppercase.font-weight-bold.pb-3.mb-3 Education
+            .resume-section-content
+              ul.list-unstyled
+              each edu in data.education
+                li.mb-2
+                  .resume-degree.font-weight-bold=edu.degr
+                  .resume-degree-org=edu.school
+                  .resume-degree-time=edu.year
+          // //education-section
+          section.resume-section.reference-section.mb-5
+            h2.resume-section-title.text-uppercase.font-weight-bold.pb-3.mb-3 Reference
+            .resume-section-content
+              ul.list-unstyled.resume-awards-list
+              each ref in data.reference
+                li.mb-2.pl-4.position-relative
+                  i.resume-award-icon.fas.fa-trophy.position-absolute(data-fa-transform='shrink-2')
+                  .resume-award-name=ref.name
+                  .resume-award-desc=ref.phone
+          // //interests-section
+          section.resume-section.language-section.mb-5
+            h2.resume-section-title.text-uppercase.font-weight-bold.pb-3.mb-3 Language
+            .resume-section-content
+              ul.list-unstyled.resume-lang-list
+              each lang in data.lang
+                li.mb-2
+                  span.resume-lang-name.font-weight-bold=lang
+          // //language-section
+          section.resume-section.interests-section.mb-5
+            h2.resume-section-title.text-uppercase.font-weight-bold.pb-3.mb-3 Hobbies
+            .resume-section-content
+              ul.list-unstyled
+              each hobby in data.hobbies
+                li.mb-1=hobby
+          // //interests-section
+      // //row
+    // //resume-body
+footer.footer.text-center.pt-2.pb-5
+    small.copyright
+    | Developed by 
+    a(href=`${data.repo}` target='_blank' )=data.nickname

@@ -1,0 +1,25 @@
+Theme name:
+=======================================================================
+Pillar
+
+Theme version:
+=======================================================================
+v1.0
+
+Release Date:
+=======================================================================
+Tuesday 6 October 2020
+
+Author: 
+=======================================================================
+Zubbey Innocent (https://github.com/zubbey/)
+
+Contact:
+=======================================================================
+Web: https://coloredigit.com
+Email: com.zubbey@hotmail.com
+instagram: @official-zubbey
+
+License: 
+=======================================================================
+This template is 100% FREE as long as you keep the footer attribution link. You do not have the rights to resell, sublicense or redistribute (even for free) the template on its own or as a separate attachment from any of your work.
