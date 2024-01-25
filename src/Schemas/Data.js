@@ -237,7 +237,7 @@ export const Data = {
       {
         "name": "Obagi HCDT",
         "jobdesc": "Full Stack /Web and Mobile App",
-        "link": "https://obagi-hcdt.com"
+        "link": "https://obagihcdt.com"
       },
       {
         "name": "Deebeauty",
@@ -247,7 +247,7 @@ export const Data = {
       {
         "name": "Skylight",
         "jobdesc": "Full Stack /Web and Mobile App",
-        "link": "https://skylight-18c60.web.app"
+        "link": "https://skylightcooperative.com"
       },
       {
         "name": "The Nigerian Queen",
